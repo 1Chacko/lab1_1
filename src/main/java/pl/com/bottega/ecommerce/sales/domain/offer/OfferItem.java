@@ -63,16 +63,22 @@ public class OfferItem {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result
-				+ ((offerItem.getDiscount() == null) ? 0 : offerItem.getDiscount().hashCode());
-		result = prime * result + ((offerItem.getProductName() == null) ? 0 : offerItem.getProductName().hashCode());
-		result = prime * result + ((offerItem.getProductPrice() == null) ? 0 : offerItem.getProductPrice().hashCode());
-		result = prime * result
-				+ ((offerItem.getProductId() == null) ? 0 : offerItem.getProductId().hashCode());
-		result = prime * result + ((offerItem.getProductType() == null) ? 0 : offerItem.getProductType().hashCode());
+		
+		result = prime * result + hashHelp(offerItem.getDiscount());
+		result = prime * result + hashHelp(offerItem.getProductName());
+		result = prime * result + hashHelp(offerItem.getProductPrice());
+		result = prime * result + hashHelp(offerItem.getProductId());
+		result = prime * result + hashHelp(offerItem.getProductType());
 		result = prime * result + offerItem.getQuantity();
-		result = prime * result
-				+ ((offerItem.getTotalCost() == null) ? 0 : offerItem.getTotalCost().hashCode());
+		result = prime * result + hashHelp(offerItem.getTotalCost());
+		
+		return result;
+	}
+	
+	public int hashHelp(Object obj) {
+		
+		int result = ((obj == null) ? 0 : obj.hashCode());
+		
 		return result;
 	}
 
