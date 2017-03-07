@@ -85,40 +85,51 @@ public class OfferItem {
 	public boolean equals(Object obj) {
 		if (this == obj)
 			return true;
+		
 		if (obj == null)
 			return false;
+		
 		if (getClass() != obj.getClass())
 			return false;
+		
 		OfferItem other = (OfferItem) obj;
+		
 		if (offerItem.getDiscount() == null) {
 			if (other.offerItem.getDiscount() != null)
 				return false;
 		} else if (!offerItem.getDiscount().equals(other.offerItem.getDiscount()))
 			return false;
+		
 		if (offerItem.getProductName() == null) {
 			if (other.offerItem.getProductName() != null)
 				return false;
 		} else if (!offerItem.getProductName().equals(other.offerItem.getProductName()))
 			return false;
+		
 		if (offerItem.getProductPrice() == null) {
 			if (other.offerItem.getProductPrice() != null)
 				return false;
 		} else if (!offerItem.getProductPrice().equals(other.offerItem.getProductPrice()))
 			return false;
+		
 		if (offerItem.getProductId() == null) {
 			if (other.offerItem.getProductId() != null)
 				return false;
 		} else if (!offerItem.getProductId().equals(other.offerItem.getProductId()))
 			return false;
+		
 		if (offerItem.getProductType() != other.offerItem.getProductType())
 			return false;
+		
 		if (offerItem.getQuantity() != other.offerItem.getQuantity())
 			return false;
+		
 		if (offerItem.getTotalCost() == null) {
 			if (other.offerItem.getTotalCost() != null)
 				return false;
 		} else if (!offerItem.getTotalCost().equals(other.offerItem.getTotalCost()))
 			return false;
+		
 		return true;
 	}
 
