@@ -75,10 +75,9 @@ public class OfferItem {
 		return result;
 	}
 	
-	public int hashHelp(Object obj) {
+	private int hashHelp(Object obj) {
 		
 		int result = ((obj == null) ? 0 : obj.hashCode());
-		
 		return result;
 	}
 
@@ -152,6 +151,10 @@ public class OfferItem {
 		if (offerItem.getQuantity() != other.offerItem.getQuantity())
 			return false;
 
+		return sameAsHelp(other, delta);
+	}
+
+	private boolean sameAsHelp(OfferItem other, double delta) {
 		BigDecimal max, min;
 		if (offerItem.getTotalCost().compareTo(other.offerItem.getTotalCost()) > 0) {
 			max = offerItem.getTotalCost();
