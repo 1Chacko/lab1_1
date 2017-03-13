@@ -16,48 +16,14 @@
 package pl.com.bottega.ecommerce.sales.domain.offer;
 
 import java.math.BigDecimal;
-import java.util.Date;
 
 public class OfferItem {
 
-	OfferItemStruct offerItem = new OfferItemStruct();
+	OfferItemStruct offerItem;
 
-	public OfferItem(String productId, BigDecimal productPrice, String productName,
-			Date productSnapshotDate, String productType, int quantity) {
-		this(productId, productPrice, productName, productSnapshotDate, productType, quantity, null, null);
+	public OfferItem(OfferItemStruct offerItem) {
+			this.offerItem = offerItem;
 	}
-
-	public OfferItem(String productId, BigDecimal productPrice, String productName,
-			Date productSnapshotDate, String productType, int quantity,
-			BigDecimal discount, String discountCause) {
-		offerItem.setProductId(productId);
-		//this.productId = productId;
-		offerItem.setProductPrice(productPrice);
-		//this.productPrice = productPrice;
-		offerItem.setProductName(productName);
-		//this.productName = productName;
-		offerItem.setProductSnapshotDate(productSnapshotDate);
-		//this.productSnapshotDate = productSnapshotDate;
-		offerItem.setProductType(productType);
-		//this.productType = productType;
-
-		offerItem.setQuantity(quantity);
-		//this.quantity = quantity;
-		offerItem.setDiscount(discount);
-		//this.discount = discount;
-		offerItem.setDiscountCause(discountCause);
-		//this.discountCause = discountCause;
-
-		BigDecimal discountValue = new BigDecimal(0);
-		if (discount != null)
-			discountValue = discountValue.subtract(discount);
-		
-		offerItem.setTotalCost(productPrice.multiply(new BigDecimal(quantity)).subtract(discountValue));
-		//this.totalCost = productPrice
-		//		.multiply(new BigDecimal(quantity)).subtract(discountValue);
-	}
-
-	
 
 	@Override
 	public int hashCode() {

@@ -26,6 +26,32 @@ public class OfferItemStruct {
 
 	private BigDecimal discount;
 	
+	public OfferItemStruct(String productId, BigDecimal productPrice, String productName,
+			Date productSnapshotDate, String productType, int quantity) {
+		this(productId, productPrice, productName, productSnapshotDate, productType, quantity, null, null);
+	}
+	
+	public OfferItemStruct(String productId, BigDecimal productPrice, String productName,
+			Date productSnapshotDate, String productType, int quantity,
+			BigDecimal discount, String discountCause) {
+		this.productId = productId;
+		this.productPrice = productPrice;
+		this.productName = productName;
+		this.productSnapshotDate = productSnapshotDate;
+		this.productType = productType;
+
+		this.quantity = quantity;
+		this.discount = discount;
+		this.discountCause = discountCause;
+
+		BigDecimal discountValue = new BigDecimal(0);
+		if (discount != null)
+			discountValue = discountValue.subtract(discount);
+
+		this.totalCost = productPrice
+				.multiply(new BigDecimal(quantity)).subtract(discountValue);
+	}
+	
 	public String getProductId() {
 		return productId;
 	}
