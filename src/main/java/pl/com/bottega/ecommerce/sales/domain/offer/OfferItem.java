@@ -19,10 +19,14 @@ import java.math.BigDecimal;
 
 public class OfferItem {
 
-	OfferItemStruct offerItem;
+	private OfferItemStruct offerItem;
 
 	public OfferItem(OfferItemStruct offerItem) {
 			this.offerItem = offerItem;
+	}
+
+	public OfferItemStruct getOfferItem() {
+		return offerItem;
 	}
 
 	@Override
